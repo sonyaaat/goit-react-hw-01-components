@@ -1,4 +1,4 @@
-import css from "../TransactionHistory/TransactionHistory.module.css"
+
 import PropTypes from 'prop-types';
 const TransactionHistory=({items})=>(
 <table className="transaction-history">
