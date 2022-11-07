@@ -1,6 +1,6 @@
 import css from "../Profile/Profile.module.css"
 import PropTypes from 'prop-types';
- const Product=({username,tag,location,avatar,stats})=>(
+ const Product=({username,tag,location,avatar,stats:{followers,views,likes}})=>(
 <div className={css.profile}>
 <div className="description">
   <img
@@ -17,26 +17,29 @@ import PropTypes from 'prop-types';
 <ul className={css.stats}>
   <li className={css.stat}>
     <b className="label">Followers</b>
-    <span className={css.quantity}>{stats.followers}</span>
+    <span className={css.quantity}>{followers}</span>
   </li>
   <li className={css.stat}>
     <b className="label">Views</b>
-    <span className="quantity">{stats.views}</span>
+    <span className="quantity">{views}</span>
   </li>
   <li className={css.stat}>
     <b className="label">Likes</b>
-    <span className="quantity">{stats.likes}</span>
+    <span className="quantity">{likes}</span>
   </li>
 </ul>
 </div>)
 Product.propTypes={
-  username:PropTypes.string,
-  tag:PropTypes.string,
-  location:PropTypes.string,
-  avatar:PropTypes.string,
-  stats:PropTypes.objectOf(PropTypes.number),
-  followers:PropTypes.number,
-  views:PropTypes.number,
-  likes:PropTypes.number
+  username:PropTypes.string.isRequired,
+  tag:PropTypes.string.isRequired,
+  location:PropTypes.string.isRequired,
+  avatar:PropTypes.string.isRequired,
+  stats:PropTypes.shape(
+    {
+      followers:PropTypes.number.isRequired,
+      views:PropTypes.number.isRequired,
+      likes:PropTypes.number.isRequired
+    }
+  )
 }
 export default Product;
