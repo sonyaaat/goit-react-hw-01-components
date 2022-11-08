@@ -5,7 +5,7 @@ import FriendListItem from "./FriendListItem"
 const FriendList=({friends})=>(
 <ul className={css.friend__list}>
  {friends.map(({avatar,name,isOnline,id})=>(
-    <FriendListItem key={id} avatar={avatar} name={name} isOnline={isOnline} id={id}/>
+    <FriendListItem key={id} avatar={avatar} name={name} isOnline={isOnline} />
  ))}
 </ul>
 )
